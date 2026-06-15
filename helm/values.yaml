@@ -1,0 +1,24 @@
+replicaCount: 1
+
+image:
+  repository: jack19874/netology-diploma  # Укажите имя вашего образа (например, в Docker Hub или GitLab Registry)
+  tag: "latest"                 # Тег вашего образа. Если закомментировать, возьмет appVersion из Chart.yaml
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: "nginx"           # Имя вашего Ingress-контроллера (например, nginx, traefik)
+  host: "app.mylukomore.ru" # Домен, по которому будет открываться сайт
+  annotations: {}              # Дополнительные аннотации (например, для cert-manager под SSL)
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi

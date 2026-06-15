@@ -1,0 +1,6 @@
+apiVersion: v2
+name: netology-diploma
+description: Helm-чарт для деплоя статического сайта на Nginx
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
